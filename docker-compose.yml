@@ -1,0 +1,20 @@
+version: '3.4'
+
+services:
+  productdb:
+    image: mcr.microsoft.com/mssql/server:2017-latest
+
+ 
+
+  dockertestapi:
+    image: ${DOCKER_REGISTRY-}dockertestapi
+    build:
+      context: .
+      dockerfile: DockerTestApi/Dockerfile
+
+  dockertestapp:
+    image: ${DOCKER_REGISTRY-}dockertestapp
+    build:
+      context: .
+      dockerfile: DockerTestApp/Dockerfile
+
